@@ -106,6 +106,43 @@ h2 {
     color: #eb6d05;
 }
 
+/*Educacion*/
+.education-credits {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dotted #333;
+
+    font-size: 0.8rem;
+    font-family: 'Fira Code', monospace;
+
+    /* Ordenamos verticalmente para evitar líos de espacio */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* Espacio entre renglones */
+}
+
+/* El Título "FORMACIÓN:" */
+.edu-label {
+    color: #eb6d05;
+    /* Naranja para destacar */
+    font-size: 0.7rem;
+    /* Apenas más chico */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+    font-weight: 400;
+    /* IMPORTANTE: Sacamos la negrita para que se lea nítido */
+}
+
+/* Los Items de la lista */
+.edu-item {
+    color: #999;
+    /* Gris claro y legible */
+    font-weight: 300;
+    /* Fino y elegante */
+}
+
 /* Proyectos */
 section h3 {
     font-family: 'Fira Code', monospace;
@@ -157,15 +194,43 @@ summary::before {
     min-width: 35px;
 }
 
+summary span {
+    font-size: 0.85rem;
+    color: #666;
+}
+
 summary strong {
     margin-right: auto;
     color: #e0e0e0;
     transition: color 0.3s;
+    position: relative;
+    padding-right: 18px;
+    display: inline-block;
 }
 
-summary span {
-    font-size: 0.85rem;
-    color: #666;
+summary strong::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 45%;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+details:hover summary strong::after {
+    border-color: #eb6d05;
+}
+
+
+details[open] summary strong::after {
+    transform: rotate(225deg);
+    border-color: #eb6d05;
+    top: 50%;
 }
 
 details:hover {
@@ -307,4 +372,60 @@ footer p {
     color: #888;
     opacity: 1;
     margin-top: 15px;
+}
+
+/*Album*/
+
+.album-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.vinyl-record {
+    position: absolute;
+    z-index: -1;
+    height: 94%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -140px;
+
+    clip-path: polygon(50% -10%, 150% -10%, 150% 110%, 50% 110%);
+    background-color: #101010;
+    background-image: repeating-radial-gradient(#121212,
+            #121212 2px,
+            #1c1c1c 3px,
+            #1c1c1c 4px);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.profile-sticker {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 150px;
+    right: 15px;
+    border-radius: 50%;
+    border: 2px solid #eb6d05;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: grayscale(90%) contrast(120%) brightness(95%);
+    mix-blend-mode: hard-light;
+    box-shadow: none;
+}
+
+@media (max-width: 850px) {
+    .vinyl-record {
+        display: none;
+    }
+
+    .album-container {
+        margin-top: 0;
+    }
 }
