@@ -420,12 +420,78 @@ footer p {
     box-shadow: none;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 600px) {
+    main {
+        width: 90%;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    summary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    summary strong {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    summary span {
+        font-size: 0.75rem;
+        color: #888;
+        align-self: flex-end;
+        font-style: italic;
+    }
+
+    summary strong::after {
+        top: 10px;
+    }
+
     .vinyl-record {
-        display: none;
+        display: block;
+        width: 200px;
+        height: 200px;
+        top: -70px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        transform: none;
+        clip-path: none;
+        z-index: -1;
+    }
+
+    .profile-sticker {
+        width: 80px;
+        height: 80px;
+        top: 20px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        transform: none;
     }
 
     .album-container {
-        margin-top: 0;
+        margin-top: 60px;
+    }
+
+    .btn-repo {
+        white-space: nowrap;
+        width: 100%;
+        text-align: center;
+        font-size: 0.7rem;
+        padding: 8px 5px;
+    }
+
+    .track-details {
+        padding-left: 10px;
+        padding-right: 0;
+    }
+
+    .project-intro {
+        font-size: 0.85rem;
     }
 }
